@@ -1,5 +1,5 @@
 @Data
-public class Coutry {
+public class Country {
   
   private Long id;
   private String name;
