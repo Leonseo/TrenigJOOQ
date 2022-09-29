@@ -1,0 +1,40 @@
+ <!-- JOOQ Generator Plugin -->
+            <plugin>
+                <groupId>org.jooq</groupId>
+                <artifactId>jooq-codegen-maven</artifactId>
+                <version>${jooq.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jdbc>  <!-- указываем настройки базы -->
+                        <driver>${db.driver}</driver>
+                        <url>${db.url}</url>
+                        <user>${db.username}</user>
+                        <password>${db.password}</password>
+                    </jdbc>
+                    <generator>
+                        <database>
+                            <includes>.*</includes>  <!-- включаемые подпакеты и файлы -->
+                            <excludes>  <!-- исключаемые подпакеты и файлы -->
+                                flyway_schema_history
+                            </excludes>
+                            <inputSchema>public</inputSchema>  <!-- схема -->
+                        </database>
+                        <generate>
+                            <records>true</records>
+                        </generate>
+                        <target>
+                            <!-- структура пакетов относительно основной директории -->
+                            <packageName>ru.xpendence.jooqexample.domain</packageName>
+                            <!-- основная директория. Лучше хранить в target. -->
+                            <directory>target/generated-sources/jooq</directory>
+                        </target>
+                    </generator>
+                </configuration>
+            </plugin>
