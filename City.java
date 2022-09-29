@@ -19,7 +19,7 @@ create table countries
 create table cities
 (
   id        bigserial primary key,
-  coutry_id bigith,
+  coutry_id bigint,
   name      varchar(255)
 );
 
